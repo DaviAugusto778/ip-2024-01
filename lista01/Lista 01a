@@ -1,0 +1,167 @@
+Questão 1:
+Leia (Nota1, Nota2, Nota3)
+M ← ((Nota1 + Nota2 + Nota3) / 3)
+se M >= 6
+ Imprime ("Media =" M)/n("Aprovado)
+senão
+ Imprime ("Media=" M)/n("Reprovado")
+ -------------------------------------------------------------------------------------
+Questão 2:
+Leia (NdeTestes)
+n ← 0
+Enquanto n< NdeTestes
+Leia (NdePessoas, PorcP, PorcG, PorcA, PorcC)
+Renda ← ((NdePessoas * PorcP/100 * 1) + (NdePessoas * PorcG * 5) + (NdePessoas * PorcA * 10) + (NdePessoas * PorcC * 20))
+Imprima ("A RENDA DO JOGO N. " n+1 " E = " Renda)/n
+-------------------------------------------------------------------------------------
+Questão 3:
+Leia (n1, n2, n3)
+Num ← "(n1)(n2)(n3)"
+NumAoQua ← Num * Num
+se
+(n1, n2, n3) < -9 ou (n1, n2, n3) > 9
+Imprime ("Digito Invalido")
+senão
+Imprime (Num)(", ")(NumAoQua)/n
+-------------------------------------------------------------------------------------
+Questão 4:
+Leia (Salario)
+Leia (KwGasto)
+Preço ← (Salario * 0.007)
+GastoTotal ← (KwGasto * Preço)
+Desconto ← (GastoTotal * 0.9 *)
+Imprime ("Custo por kW: R "Preço/n"CustodoConsumo:R  " GastoTotal /n "Custo com Desconto: R$ " Desconto)
+-------------------------------------------------------------------------------------
+Questão 5 :
+Leia (CCliente)
+Leia (Consumo)
+Leia (TipoDeC)
+Se TipoDeC = "R"
+Preço ← (Consumo * 0,05 + 5)
+Imprima ("CONTA = " CCliente /n "VALOR DA CONTA = " Preço)
+Se TipoDeC = C
+Preço ← ((Consumo - 80) * 0,25 + 500)
+Imprima ("CONTA = " CCliente /n "VALOR DA CONTA = " Preço)
+Se não TipoDeC
+Preço ← ((Consumo - 100) * 0,04 + 800)
+Imprima ("CONTA = " CCliente /n "VALOR DA CONTA = " Preço)
+-------------------------------------------------------------------------------------
+Questão 6 :
+Leia (NuDeTemps)
+n ← 0
+Enquanto n< NuDeTemps
+Leia (Temp)
+Celc ← (5 * (Temp - 32) / 9)
+Imprima (Temp "FAHRENHEIT EQUIVALE À " Celc " CELSIUS"/n
+-------------------------------------------------------------------------------------
+Questão 7 :
+Leia (Fahr)
+Leia (Pol)
+Cel ← ((5* Fahr - 160) / 9)
+Chuva ← (Pol * 25.4)
+Imprima ("O VALOR EM CELSIUS = " Cel /n "A QUANTIDADE DE CHUVA É = " Chuva)
+-------------------------------------------------------------------------------------
+Questão 8:
+Leia (Raio, Altura)
+π ← 3.14159
+AreaTotal ← ((2 * π * Raio * Raio) + (2 * π * Raio * Altura))
+Valor ← (AreaTotal * 100)
+Imprima ("O VALOR DO CUSTO É = " Valor)
+-------------------------------------------------------------------------------------
+Questão 9 :
+Leia (CoeA)
+Leia (CoeB)
+Leia (CoeC)
+Delta ← ((CoeB * CoeB) - (4 * CoeA * CoeC))
+Imprima ("O VALOR DE DELTA É = " "%.2f\n", Delta)
+-------------------------------------------------------------------------------------
+Questão 10 :
+Leia (a)
+Leia (b)
+Leia (c)
+Leia (d)
+DetDaM ← ((a * d) - (b * c))
+Imprima ("O VALOR DO DETERMINANTE É = " "%.2f\n", DetDaM)
+-------------------------------------------------------------------------------------
+Questão 11 :
+Leia (Numero)
+Se Resto(Numero / 3 / 5) = 0
+Imprima (" O NUMERO É DIVISIVEL)/n
+Se não
+Imprima (" O NUMERO NÃO É DIVISIVEL)/n
+-------------------------------------------------------------------------------------
+Questão 12 :
+Leia (Horas)
+R ← Resto (Horas / 3)
+Se Horas >= 3
+Preço ← (( Horas / 3 ) * 10 + (R * 5))
+Imprima ("O VALOR A PAGAR É" Preço)/n
+Se não
+Preço ← (Horas * 5)
+Imprima ("O VALOR A PAGAR É" Preço)/n
+-------------------------------------------------------------------------------------
+Questão 13 :
+Leia (Nota)
+Se Nota > 9
+Imprima ("NOTA = " Nota " CONCEITO = A")/n
+ou Nota >= 7,5 e < 9
+Imprima ("NOTA = " Nota " CONCEITO = B")/n
+ou Nota >= 6 e < 7,5
+Imprima ("NOTA = " Nota " CONCEITO = C")/n
+se não
+Imprima ("NOTA = " Nota " CONCEITO = D")/n
+-------------------------------------------------------------------------------------
+Questão 14 :
+Leia (Altura)
+Leia (Aresta)
+K ← 1.732
+Volume ← (1 / 3 * (3 * Aresta * Aresta * K / 2) * Altura)
+Imprime ("O VOLUME DA PIRAMIDE É = " Volume " METROS CUBICOS)/n
+-------------------------------------------------------------------------------------
+Questão 16 :
+Leia (Salario)
+Se Salario <= 300
+Reajuste ← (Salario * 1,5)
+Imprima ("SALARIO COM REAJUSTE = " Salario)/n
+Se não
+Reajuste ← (Salario * 1,3)
+Imprima ("SALARIO COM REAJUSTE = " Salario)/n
+-------------------------------------------------------------------------------------
+Questão 17 :
+Leia (NumInicial, NumDeVezes)
+Se NumInicial for Impar
+Imprima " O PRIMEIRO NUMERO NAO E PAR"/n
+Se não
+n ← 0
+soma ← NumInicial
+Enquanto n < NumDeVezes
+soma ← (soma + 2)
+Catalogue em (Numeros)
+Imprima (NumInicial Numeros)
+-------------------------------------------------------------------------------------
+Questão 18 :
+Leia (Num, Progressao, NumDeProgressoes)
+soma ← 0
+n ← 0
+Enquanto n < NumDeProgressoes
+soma ← (soma + Num)
+Num ← (Num + Progressao)
+Imprima ← ("Num")
+-------------------------------------------------------------------------------------
+Questão 19 :
+Leia (Numero)
+Se Numero < 1
+Imprima ("Numero invalido!)
+Se não
+n ← 0
+soma ← 1
+Enquanto N< Numero
+soma ← (soma + 1 / (Numero + 1))
+Imprima (soma)/n
+-------------------------------------------------------------------------------------
+Questão 20 :
+Leia (Horas)
+Leia (Minutos)
+Leia (Seg)
+Segundos ← ((Horas * 3600) + (Minutos * 60) + Seg)
+Imprima (" O TEMPO EM SEGUNDOS É = " Segundos)/n
