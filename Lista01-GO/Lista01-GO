@@ -1,0 +1,378 @@
+// QUESTÃO 1:
+
+package main
+import "fmt"
+
+var Nota1,Nota2,Nota3 float64
+var Media float64
+var Resultado string
+
+func main() {
+  fmt.Println("Quais suas Notas?: ")
+  fmt.Scan(&Nota1, &Nota2, &Nota3)
+  Media = ((Nota1 + Nota2 +Nota3) / 3)
+  if Media >= 6 {
+      Resultado = "APROVADO"
+  } else {
+      Resultado = "REPROVADO"
+  }
+  fmt.Printf("MÉDIA: %0.3v \n", Media)
+  fmt.Print(Resultado)
+}
+---------------------------------------------------------------------------------------------------------------
+// QUESTÃO 2:
+package main
+import "fmt"
+
+var NdeTestes int
+
+func main() {
+  fmt.Println("Quantos casos de teste?")
+  fmt.Scan(&NdeTestes)
+  for i:= 0; i < NdeTestes; i++ {
+      var NdePessoas,PorcP,PorcG,PorcA,PorcC,Renda float64
+      fmt.Scan(&NdePessoas,&PorcP, &PorcG, &PorcA, &PorcC)
+      Renda = (NdePessoas * PorcP/100 * 1) + (NdePessoas * PorcG/100 * 5) + (NdePessoas * PorcA/100 * 10) + (NdePessoas * PorcC/100 * 20)
+      defer fmt.Printf("A RENDA DO JOGO N. %v é: %.2f \n", i+1, Renda)
+  }
+}
+---------------------------------------------------------------------------------------------------------------
+// QUESTÃO 3:
+package main
+import "fmt"
+
+var N1,N2,N3,num int
+
+func main() {
+  fmt.Println("Digite três números:")
+  fmt.Scan(&N1, &N2, &N3)
+  num = (N1*100 + N2 * 10 + N3)
+  if  N1 > 9 || N1 < -9 || N2 > 9 || N2 < -9 || N3 > 9 || N3 < -9 {
+  fmt.Println("DIGITO INVALIDO")
+  } else {
+  fmt.Println(num, ",", num*num) }
+}
+---------------------------------------------------------------------------------------------------------------
+// QUESTÃO 4:
+package main
+import "fmt"
+
+var Salario,KwGasto,Preço,GastoTotal,Desconto float64
+
+func main() {
+  fmt.Println("Qual seu salário e seu consumo?")
+  fmt.Scan(&Salario, &KwGasto)
+  Preço = (Salario * 0.007)
+  GastoTotal = (KwGasto * Preço)
+  Desconto = (GastoTotal * 0.9)
+  fmt.Printf("Custo por kW: R$%.2f \nCusto do Consumo: R$%.2f \nCusto com Desconto: R$%.2f ", Preço, GastoTotal, Desconto)
+}
+---------------------------------------------------------------------------------------------------------------
+// QUESTÃO 5:
+package main
+import "fmt"
+
+var Consumo, Preço float64
+var CCliente, TipoDeC string
+
+func main() {
+  fmt.Println("Qual sua conta, consumo de água e tipo de consumidor?")
+  fmt.Scan(&CCliente,&Consumo,&TipoDeC)
+  if TipoDeC == "R" {
+   Preço = (Consumo * 0.05 + 5)
+   fmt.Printf("CONTA = %v \nVALOR DA CONTA = %.2f \n", CCliente, Preço)
+   } else if TipoDeC == "C" {
+   Preço = ((Consumo - 80) * 0.25 + 500)
+   fmt.Printf("CONTA = %v \nVALOR DA CONTA = %.2f \n ", CCliente, Preço)
+   } else {
+   Preço = ((Consumo - 100) * 0.04 + 800)
+   fmt.Printf("CONTA = %v \nVALOR DA CONTA = %.2f \n ", CCliente, Preço) }
+}
+---------------------------------------------------------------------------------------------------------------
+// QUESTÃO 6:
+
+package main
+import "fmt"
+
+var NdeTemps int
+
+func main() {
+  fmt.Println("Quantas conversões? E Quais temperaturas?")
+  fmt.Scan(&NdeTemps)
+  for i:= 0; i < NdeTemps; i++ {
+      var Temp,Celc float64
+      fmt.Scan(&Temp)
+      Celc = (5 * (Temp - 32) / 9)
+      defer fmt.Printf("%v FAHRENHEIT EQUIVALE À %.2f CELCIUS \n", Temp,Celc)
+  }
+}
+---------------------------------------------------------------------------------------------------------------
+// QUESTÃO 7
+
+package main
+import "fmt"
+
+var Fahr,Pol,Cel,Chuva float64
+
+func main() {
+  fmt.Println("Qual a temperatura e quantas polegadas de chuva?")
+  fmt.Scan(&Fahr, &Pol)
+  Cel = ((5* Fahr - 160) / 9)
+  Chuva = (Pol * 25.4)
+  fmt.Printf("O VALOR EM CELSIUS = %.2f\nA QUANTIDADE DE CHUVA É = %.2f",Cel,Chuva)
+}
+---------------------------------------------------------------------------------------------------------------
+// QUESTÃO 8
+
+package main
+import "fmt"
+import "math"
+
+var Raio, Altura, AreaTotal, Valor float64
+
+func main() {
+  fmt.Println("Qual o raio e a altura?")
+  fmt.Scan(&Raio, &Altura)
+  AreaTotal = ((2 * math.Pi * Raio * Raio) + (2 * math.Pi * Raio * Altura))
+  Valor = (AreaTotal * 100)
+  fmt.Printf("O VALOR DO CUSTO É = %.2f ",Valor)
+}
+---------------------------------------------------------------------------------------------------------------
+// QUESTÃO 9
+
+package main
+import "fmt"
+
+var CoeA,CoeB,CoeC,Delta float64
+
+func main() {
+  fmt.Println("Quais são os Coeficientes?")
+  fmt.Scan(&CoeA,&CoeB,&CoeC)
+  Delta = ((CoeB * CoeB) - (4 * CoeA * CoeC))
+  fmt.Printf("O VALOR DE DELTA É = %.2f", Delta)
+}
+---------------------------------------------------------------------------------------------------------------
+// QUESTÃO 10
+
+package main
+import "fmt"
+
+var Num int
+
+func main() {
+  fmt.Println("Qual o Número?")
+  fmt.Scan(&Num)
+  a:= 5
+  b:= 3
+  if Num % a == 0 && Num % b == 0 {
+      fmt.Println("O NUMERO E DIVISIVEL")
+  } else {
+      fmt.Println("O NUMERO NAO E DIVISIVEL")
+  }
+}
+---------------------------------------------------------------------------------------------------------------
+// QUESTÃO 11
+
+package main
+import "fmt"
+
+var Num int
+
+func main() {
+  fmt.Println("Qual o Número?")
+  fmt.Scan(&Num)
+  a:= 5
+  b:= 3
+  if Num % a == 0 && Num % b == 0 {
+      fmt.Println("O NUMERO E DIVISIVEL")
+  } else {
+      fmt.Println("O NUMERO NAO E DIVISIVEL")
+  }
+}
+---------------------------------------------------------------------------------------------------------------
+\\ QUESTÃO 12
+
+
+package main
+import "fmt"
+
+var Horas,Resto,Preço int
+
+func main() {
+  fmt.Println("Por quanto tempo você utilizou?")
+  fmt.Scan(&Horas)
+  a := 3
+  Resto = Horas % a
+  if Horas >= 3 {
+      Preço = (Horas / 3 ) * 10 + (Resto * 5)
+      fmt.Printf("O VALOR A PAGAR É = %.2v", Preço)
+  } else {
+      Preço = Horas * 5
+      fmt.Printf("O VALOR A PAGAR É = %.2v", Preço)
+  }
+}
+---------------------------------------------------------------------------------------------------------------
+// QUESTÃO 13
+
+package main
+import "fmt"
+
+var nota float64
+
+func main() {
+  fmt.Println("Qual a sua nota?")
+  fmt.Scan(&nota)
+  if nota >= 9 {
+      fmt.Println("NOTA = ",nota,"CONCEITO = A")
+  } else if nota >= 7.5 && nota < 9 {
+      fmt.Println("NOTA = ",nota,"CONCEITO = B")
+  } else if nota >= 6 && nota < 7.5 {
+      fmt.Println("NOTA = ",nota,"CONCEITO = C")
+  } else {
+      fmt.Println("NOTA = ",nota,"CONCEITO = D")
+  }
+}
+---------------------------------------------------------------------------------------------------------------
+// QUESTÃO 14
+
+package main
+import "fmt"
+import "math"
+
+var Altura, Aresta, Volume float64
+
+func main() {
+  fmt.Println("Qual o tamanho da altura e da aresta?")
+  fmt.Scan(&Altura,&Aresta)
+  Volume = Aresta * Aresta * math.Sqrt(3) * Altura / 2
+  fmt.Printf("O VOLUME DA PIRÂMIDE É = %.2f METROS CUBICOS", Volume)
+}
+---------------------------------------------------------------------------------------------------------------
+// QUESTÃO 15
+
+package main
+import "fmt"
+
+var Num int
+
+func main() {
+  fmt.Println("Qual o número?")
+  fmt.Scan(&Num)
+  if Num <= 5 || Num > 2000 {
+      fmt.Println("DIGITO INVALIDO")
+  } else {
+      i := 2
+      if Num % i == 0 {
+      fmt.Println(Num,"^ 2 = ", Num * Num)
+      for Num > 2 {
+          Num = Num - 2
+          fmt.Println(Num,"^ 2 = ",Num * Num) }
+      } else {
+          Num = Num - 1
+          fmt.Println(Num,"^ 2 = ", Num * Num)
+      for Num > 2 {
+          Num = Num - 2
+          fmt.Println(Num,"^ 2 = ",Num * Num)
+
+      }
+      }
+  }
+}
+---------------------------------------------------------------------------------------------------------------
+// QUESTÃO 16
+
+package main
+import "fmt"
+
+var Salario float64
+
+func main() {
+  fmt.Println("Qual seu salário?")
+  fmt.Scan(&Salario)
+  if Salario <= 300 {
+      Salario = Salario*1.5
+      fmt.Printf("SALARIO COM REAJUSTE = %.2f \n",Salario)
+  } else {
+      Salario = Salario*1.3
+      fmt.Printf("SALARIO COM REAJUSTE = %.2f \n",Salario)
+  }
+}
+---------------------------------------------------------------------------------------------------------------
+// QUESTÃO 17
+
+package main
+import "fmt"
+
+var Num, N int
+
+func main() {
+  fmt.Println("Qual o número inicial e quantos pares?")
+  fmt.Scan(&Num, &N)
+  a := 2
+  if Num % a == 0 {
+      fmt.Print(Num, " ")
+      for i:=1 ; i < N; i++ {
+          Num = Num + 2
+          fmt.Print(Num," ") }
+  } else {
+      fmt.Println("O PRIMEIRO NUMERO NÃO É PAR")
+  }
+}
+---------------------------------------------------------------------------------------------------------------
+// QUESTÃO 18
+
+package main
+import "fmt"
+
+var Num, N, Prog int
+
+func main() {
+  fmt.Println("Qual o número inicial , qual a progressão e quantas progressões?")
+  fmt.Scan(&Num,&Prog,&N)
+  Soma := 0
+  for i:=0; i < N; i++ {
+      Soma = Soma + Num
+      Num = Num + Prog
+  }
+  fmt.Println(Soma)
+}
+---------------------------------------------------------------------------------------------------------------
+// QUESTÃO 19
+
+package main
+import "fmt"
+
+var Soma,Prog float64
+var i, Num int
+
+func main() {
+  fmt.Println("Qual o número ?")
+  fmt.Scan(&Num)
+  Soma = 1
+  Prog = 1
+  if Num <= 1 {
+      fmt.Println("Número Invalido!")
+  } else {
+      for i:= 1; i < Num; i++ {
+          Prog = Prog + 1
+          Soma = Soma + 1/ Prog
+      }
+      defer fmt.Printf("%.6f\n", Soma)
+  }
+}
+---------------------------------------------------------------------------------------------------------------
+// QUESTÃO 20:
+
+package main
+import "fmt"
+
+var Horas, Min, Seg, Segundos int
+
+func main() {
+  fmt.Println("Qual a hora, minuto e segundo?")
+  fmt.Scan(&Horas,&Min,&Seg)
+  Segundos = (Horas * 3600) + (Min * 60) + Seg
+  fmt.Println("O TEMPO EM SEGUNDOS É = ", Segundos)
+}
+---------------------------------------------------------------------------------------------------------------
+
