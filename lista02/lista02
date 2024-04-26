@@ -1,0 +1,742 @@
+// QUESTÃO 1
+
+package main
+import "fmt"
+
+var Matricula int
+var NotaP1, NotaP2, NotaP3, NotaP4, NotaP5, NotaP6,NotaP7,NotaP8,NotaL1,NotaL2,NotaL3,NotaL4,NotaL5,NotaT, MediaP, MediaL, NotaTotal, Presença float32
+
+func main() {
+  fmt.Println("Qual a matricula, Notas e Presença?")
+  for {
+      fmt.Scan(&Matricula)
+      if Matricula == -1 {
+          return
+      } else {
+  fmt.Scan(&NotaP1,&NotaP2,&NotaP3,&NotaP4,&NotaP5,&NotaP6,&NotaP7,&NotaP8,&NotaL1,&NotaL2,&NotaL3,&NotaL4,&NotaL5,&NotaT,&Presença)
+  MediaP = (NotaP1 + NotaP2 + NotaP3 + NotaP4 + NotaP5 + NotaP6 + NotaP7 + NotaP8)/ 8
+  MediaL = (NotaL1 + NotaL2 + NotaL3 + NotaL4 + NotaL5) / 5
+  NotaTotal = 0.7 * MediaP + 0.15 * MediaL + 0.15 * NotaT
+  switch {
+      case NotaTotal >= 6 && Presença >= 96:
+      defer fmt.Printf("Matricula: %d, Nota Final: %.2f, Situação Final: APROVADO\n",Matricula,NotaTotal)
+      case NotaTotal >= 6 && Presença < 96:
+      defer fmt.Printf("Matricula: %d, Nota Final: %.2f, Situação Final: REPROVADO POR FREQUENCIA\n",Matricula,NotaTotal)
+      case NotaTotal < 6 && Presença >= 96:
+      defer fmt.Printf("Matricula: %d, Nota Final: %.2f, Situação Final: REPROVADO POR NOTA\n",Matricula,NotaTotal)
+      default:
+      defer fmt.Printf("Matricula: %d, Nota Final: %.2f, Situação Final: REPROVADO POR NOTA E POR FREQUENCIA\n",Matricula,NotaTotal)
+  }
+  }
+}
+}
+
+------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------
+// QUESTÃO 2
+
+package main
+import "fmt"
+
+var PopulaçaoA, PopulaçaoB, Anos float64
+
+func main() {
+  fmt.Println("Qual a população do país A e qual a do país B?")
+  fmt.Scan(&PopulaçaoA, &PopulaçaoB)
+  for PopulaçaoB > PopulaçaoA {
+      PopulaçaoA = PopulaçaoA * 1.03
+      PopulaçaoB = PopulaçaoB * 1.015
+      Anos = Anos + 1
+  }
+  fmt.Println("ANOS = ",Anos)
+}
+------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------
+// Questão 3
+
+package main
+import "fmt"
+
+var Num, Fatorial float64
+
+func main() {
+  fmt.Println("Qual o número?")
+  fmt.Scan(&Num)
+  Num = Num + 1
+  Fatorial = 1
+  for i := 1.0; i < Num; i++ {
+      Fatorial = Fatorial * i
+  }
+  fmt.Println(Fatorial)
+}
+------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------
+// Questão 4
+
+package main
+import "fmt"
+
+var Num,ProgInicial, n, Prog, Soma float64
+
+func main() {
+  fmt.Println("Qual o número, número da tabuada, quantas vezes e qual a progressão?")
+  fmt.Scan(&Num,&ProgInicial,&n,&Prog)
+  fmt.Printf("Tabuada de soma:\n%.2f + %.2f = %.2f\n", Num,ProgInicial,Num + ProgInicial )
+  ProgSo := Prog
+for i := 1.0; i < n ; i++ {
+      Soma = Num + ProgInicial + ProgSo
+      fmt.Printf("%.2f + %.2f = %.2f\n", Num,ProgInicial + ProgSo,Soma)
+      ProgSo += ProgSo
+  }
+  fmt.Printf("Tabuada de subtração:\n%.2f - %.2f = %.2f\n", Num,ProgInicial,Num - ProgInicial)
+  ProgSu := Prog
+  for i := 1.0; i < n ; i++ {
+      Soma = Num - (ProgInicial + ProgSu)
+      fmt.Printf("%.2f - %.2f = %.2f\n", Num,ProgInicial + ProgSu,Soma)
+      ProgSu += ProgSu
+  }
+  fmt.Printf("Tabuada de multiplicação:\n%.2f x %.2f = %.2f\n", Num,ProgInicial,Num * ProgInicial )
+  ProgM := Prog
+for i := 1.0; i < n ; i++ {
+      Soma = Num * (ProgInicial + ProgM)
+      fmt.Printf("%.2f x %.2f = %.2f\n", Num,ProgInicial + ProgM,Soma)
+      ProgM += ProgM
+  }
+    fmt.Printf("Tabuada de divisão:\n%.2f / %.2f = %.2f\n", Num,ProgInicial,Num / ProgInicial )
+  ProgD := Prog
+for i := 1.0; i < n ; i++ {
+      Soma = Num / (ProgInicial + ProgD)
+      fmt.Printf("%.2f / %.2f = %.2f\n", Num,ProgInicial + ProgD,Soma)
+      ProgD += ProgD
+  }
+}
+------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------
+// Questão 5 !!
+
+package main
+import "fmt"
+
+var n, Num, Ant, Comp, CompMax int
+
+func main() {
+  fmt.Printf("Digite o numero de elementos da sequencia: ")
+  fmt.Scanf("%d", &n)
+  fmt.Printf("Digite uma sequencia com %d numeros inteiros: ", n)
+  fmt.Scanf("%d", &Ant)
+  Comp = 1
+  CompMax = 1
+  for i := 1; i < n ; i++ {
+      fmt.Scan(&Num)
+      if Num > Ant {
+          Comp = Comp + 2
+      } else if CompMax < Comp {
+          CompMax = Comp
+      } else {
+          Comp = 1
+          Ant = Num
+      }
+  }
+   fmt.Printf("O comprimento do segmento crescente maximo é: %d\n", CompMax)
+}
+------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------
+// QUESTÃO 6
+
+package main
+import "fmt"
+
+var n,Num,Quantidade int 
+var Numeros []int
+
+func main (){
+  fmt.Println("Quantos números e quais são eles?")
+	fmt.Scan(&n)
+	for i:=0;i<n;i++{
+		fmt.Scan(&Num)
+		Numeros = append(Quantidade, Num)
+	}
+	for i:=0;i<n-1;i++{
+		cont := 1
+		for k:=i+1;k<n;k++{
+			if Numeros[i]==Numeros[k]{
+				cont++
+			}else{
+				break
+			}
+		}
+		if cont >= Quantidade{
+			Quantidade = cont
+		}
+	}
+	fmt.Printf("A maior subsequencia de elementos iguais possui %v elementos .",Quantidade)
+}
+------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------
+// QUESTÃO 7
+
+package main
+import "fmt"
+
+var Par []int
+var Impar []int
+var temp int
+var MediaPar,MediaImpar,ind,sum float64
+
+func media(numbers []int) float64 {
+    for _, num := range numbers {
+        sum += float64(num)
+		ind++
+    }
+    return sum/ind
+}
+
+func main (){
+    fmt.Println("Quais os números?")
+	for {
+		fmt.Scan(&temp)
+		if temp==0{
+			break
+		}
+		if temp%2==0{
+			Par = append(Par,temp)
+		}else{
+			Impar = append(Impar,temp)
+		}
+	}
+	MediaPar = media(Par)
+	fmt.Printf("MEDIA PAR : %.2f\n",MediaPar)
+	MediaImpar = media(Impar)
+	fmt.Printf("MEDIA IMPAR : %.2f\n",MediaImpar)
+
+}
+------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------
+// QUESTÃO 8
+
+package main
+import "fmt"
+
+var Num int
+
+func fac(n int)int{
+	if Num ==1 {
+		return Num 
+	}else{
+		return fac(Num-1)*Num
+	}
+}
+func main(){
+    fmt.Println("Qual o número?")
+	fmt.Scan(&Num)
+	if Num <= 2{
+		fmt.Print("Campeonato inválido !")
+	}
+	Linha:=1
+	for i:=0; i < Num - 1; i++{
+		for n:=i + 1;n<Num;n++{
+			fmt.Printf("Final %v: Time%v X Time%v\n",Linha,i + 1,n + 1)
+			Linha++
+		}
+	}
+}
+------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------
+// QUESTÃO 9
+
+package main
+import("fmt")
+
+var Num int
+
+func Primo (int)string{
+	for i:=Num-1;i>1;i--{
+		if Num%i==0{
+			return "NÃO É PRIMO"
+		}
+	}
+	return "PRIMO"
+}
+
+func main(){
+    fmt.Println("Qual o número?")
+	fmt.Scan(&Num)
+	if Num <= 0{
+	    fmt.Println("NÚMERO INVALIDO")
+	} else if Num == 1 {
+	    fmt.Println("NÃO É PRIMO")
+	} else {
+	fmt.Print(Primo(Num))
+	}
+}
+------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------
+// QUESTÃO 10
+
+package main
+import "fmt"
+
+var Matricula int
+var Horas, Valor float64
+
+func main() {
+  fmt.Println("Qual a matricula, as horas trabalhadas e o valor delas?")
+  for {
+      fmt.Scan(&Matricula)
+      if Matricula == 0 {
+          return
+      } else {
+          fmt.Scan(&Horas,&Valor)
+          defer fmt.Printf("%d %.2f\n",Matricula, Horas * Valor )
+      }
+  }
+}
+------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------
+// QUESTÃO 11
+
+package main 
+import "fmt"
+import "math"
+
+var n, e float64
+
+func ri(n float64,i int )float64{
+	if i==0{
+		return 1
+	}else{
+		return (ri(n,i-1)+(n/ri(n,i-1)))/2
+	}
+}
+
+func main(){
+	fmt.Scan(&n,&e)
+	i:=1
+	for {
+		temp := math.Abs(n-ri(n,i)*ri(n,i))
+		fmt.Printf("r: %.9f, erro: %.9f \n",ri(n,i),temp)
+		if temp<e{
+			break
+		}
+		i++
+	}
+}
+------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------
+// QUESTÃO 13
+
+package main
+import "fmt"
+
+var Num,Soma float64
+
+func main() {
+  fmt.Println("Qual o número?")
+  fmt.Scan(&Num)
+  for i := 1; i < 64; i++ {
+      if i%2 == 1 {
+          Soma += Num * 2
+      } else {
+          Soma += Num
+      }
+  }
+  fmt.Println(Soma)
+}
+------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------
+// QUESTÃO 14
+
+package main
+import "fmt"
+
+var Linhas, Colunas int
+
+func main() {
+  fmt.Println("Qual o número de linhas e qual o de colunas?")
+  fmt.Scan(&Linhas,&Colunas)
+  for i := 1; i <= Linhas; i++ {
+      fmt.Println()
+      for n := 1; n <= Colunas; n++ {
+          if i > n {
+              fmt.Printf("(%d,%d)",i,n)
+              if n != i - 1 && n != Colunas {
+                  fmt.Print("-")
+              }
+          }
+      }
+  }
+}
+------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------
+// QUESTÃO 15 !!
+
+package main
+import "fmt"
+
+var n, Num1,Num2,NumReverso1,NumReverso2,Resto1,Resto2 int
+
+func Reverso (int,int)int {
+    for Num1 != 0 && Num2 != 0 {
+        Resto1 = Num1 % 10
+        Resto2 = Num2 % 10
+        NumReverso1 = NumReverso1 * 10 / Resto1
+        NumReverso2 = NumReverso2 * 10 / Resto2
+        Num2 /= 10
+        Num2 /= 10
+    }
+    return NumReverso1
+    return NumReverso2
+}
+
+func main() {
+  fmt.Println("Quantos casos e quais os números")
+  fmt.Scan(&n)
+  for i :=0; i < n; i++ {
+      fmt.Scan(&Num1,&Num2)
+      fmt.Println(Reverso(NumReverso1),Reverso(NumReverso2))
+  }
+}
+------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------
+// QUESTÃO 17
+
+package main
+import "fmt"
+
+var n,MenorQ10,MaiorQ10,MaiorQ20,Mercadoria,MaiorLucro,MaisUni int
+var VdeCompra,VdeVenda,Uni,Venda,Lucro,Compra,MaiorRef,MaisUniRef,VendaTotais, LucroTotal,CompraTotal float64
+
+func main() {
+  fmt.Println("Quantas Mercadorias?")
+  fmt.Scan(&n)
+  for i := 0; i < n; i++ {
+  fmt.Println("Qual a mercadoria, Valor de Compra, Valor de Venda e Unidades Vendidas?")
+  fmt.Scan(&Mercadoria,&VdeCompra,&VdeVenda,&Uni)
+  Lucro = (VdeVenda - VdeCompra) * Uni
+  Venda = VdeVenda * Uni
+  Compra = VdeCompra * Uni
+  VendaTotais += Venda
+  CompraTotal += Compra
+  LucroTotal += Lucro
+    if Lucro > MaiorRef {
+        MaiorRef = Lucro
+        MaiorLucro = Mercadoria }
+    if Uni > MaisUniRef {
+        MaisUniRef = Lucro
+        MaisUni = Mercadoria }
+  if Lucro / (VdeVenda*Uni) * 100 < 10 {
+          MenorQ10++
+      } else if Lucro / (VdeVenda*Uni) * 100 > 10 && Lucro / (VdeVenda*Uni) * 100 <= 20 {
+          MaiorQ10++
+      } else {
+          MaiorQ20++
+      }
+
+  }
+  fmt.Print("Quantidade de mercadorias que geraram lucro menor que 10: " ,MenorQ10, "\n")
+  fmt.Print("Quantidade de mercadorias que geraram lucro maior ou igual a 10 e menor ou igual a 20: ",MaiorQ10, "\n")
+  fmt.Print("Quantidade de mercadorias que geraram lucro maior do que 20: ",MaiorQ20, "\n")
+  fmt.Println("Codigo da mercadoria que gerou maior lucro:", MaiorLucro)
+  fmt.Println("Codigo da mercadoria mais vendida:", MaisUni)
+  fmt.Printf("Valor total de compras: %.2f, valor total de vendas: %.2f e percentual de lucro total: %.2f", CompraTotal,VendaTotais, LucroTotal / CompraTotal * 100)
+}
+------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------
+// QUESTÃO 18
+
+package main 
+import "fmt"
+
+var Num1,Num2,Num3 int 
+
+func main(){
+    fmt.Println("Quais os números?")
+	fmt.Scan(&Num1,&Num2,&Num3)
+	n := 2
+	MMC := 1
+	for{
+		if(Num1 == 1 && Num2 == 1 && Num3 == 1){
+			break
+		}
+		if(Num1 % n !=0 && Num2 % n !=0 && Num3 % n != 0){
+			n++
+		}else {
+			MMC *= n
+			fmt.Printf("%v %v %v : %v\n",Num1,Num2,Num3,n)		
+			if Num1%n==0{
+				Num1 = Num1/n
+			}
+			if Num2%n==0{
+				Num2 = Num2/n
+			}
+			if Num3%n==0{
+				Num3 = Num3/n
+			}
+		}
+	}
+	fmt.Printf("MMC : %v\n",MMC)
+}
+------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------
+// QUESTÃO 19
+
+package main
+import "fmt"
+
+var Num,Linha int
+
+func main() {
+    fmt.Println("Qual o número")
+	fmt.Scan(&Num)
+	i :=1
+	for k :=1; k<=Num; k++{
+		fmt.Printf("%v*%v*%v = ",k,k,k)
+		Linha = i + ( 2 * (k - 1) )
+		for n := i;n <= Linha;n += 2{
+			fmt.Printf("%v",n)
+			if n != Linha{
+				fmt.Print("+")
+			}else{
+				fmt.Print("\n")
+			}
+		}
+		i = Linha + 2
+	
+	}
+}
+------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------
+// QUESTÃO 20
+
+package main
+import "fmt"
+
+var Num,Soma int
+
+func main() {
+    fmt.Println("Qual o número?")
+	fmt.Scan(&Num)
+	fmt.Print(Num," = ")
+	for i :=1 ;i < Num; i++{
+		if Num%i==0{
+			Soma += i
+			if i !=1{
+				fmt.Print(" + ")
+			}
+			fmt.Print(i)
+		}
+	}
+	if Soma == Num{
+	
+		fmt.Printf(" = %v (NÚMERO PERFEITO)",Soma)
+	}else{
+		fmt.Printf(" = %v (NÚMERO NÃO PERFEITO)",Soma)
+	}
+
+}
+------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------
+// QUESTÃO 21
+
+package main
+import "fmt"
+
+var Num,n int
+var ant,pos float64
+
+func main(){
+    fmt.Println("Qual os números?")
+	for{
+		n=0
+		fmt.Scan(&Num)
+		if Num == 0{
+			return
+		}
+		if Num == 1{
+			fmt.Scan(&ant)
+			fmt.Print("Ordenada\n")
+		}
+		fmt.Scan(&ant)
+		for c:=0;c<n-1;c++{
+			fmt.Scan(&pos)
+			if ant > pos{
+				n = 1
+				break
+			}
+			ant = pos
+		}
+		if n == 0{
+			 fmt.Print("Ordenada\n")
+		}else{
+			 fmt.Print("Desordenada\n")
+		}
+	}
+}
+------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------
+// QUESTÃO 22
+
+package main
+import "fmt"
+import "math"
+	
+var Num float64
+var n,Determinante int
+
+func main() {
+    fmt.Println("Qual o número a ser fracionado?")
+	fmt.Scan(&Num)
+	Linha := 2.0
+	for {
+		if math.Mod(Num*Linha,2)==1 || math.Mod(Num*Linha,2)==0{
+			Determinante = int(Linha)
+			n = int(Num*Linha)
+			break
+		}
+		Linha++
+	}
+	fmt.Printf("%v/%v",n,Determinante)
+}
+------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------
+// QUESTÃO 23
+
+package main
+import "fmt"
+
+
+var Num int
+
+func Soma(n int)int{
+	Soma :=0
+	for i:=1;i < n;i++{
+		if n%i ==0 {
+			Soma += i
+		}
+	}
+	return Soma
+}
+
+func main(){
+    fmt.Println("Qual o número?")
+	fmt.Scan(&Num)
+	Linha := 0
+	for k := 284; Linha < Num;k++ {
+		a :=1
+		for{
+			if a >= k{
+				break
+			}
+			if Soma(k) == a && Soma(a) == k{
+				fmt.Printf("(%v,%v)\n",a,k)
+				Linha++
+				break
+			}
+			a++
+		}
+
+	}
+}
+------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------
+// QUESTÃO 24
+
+package main
+
+import "fmt" 
+import "math"
+
+var Ang,Resultado float64
+var k int
+
+func Cos(n int)int{
+	Soma := 1
+	for i:=2; i <= n;i ++{
+		Soma *= i
+	}
+	return Soma
+}
+
+func main(){
+    fmt.Println("Qual o angulo e quantos termos?")
+	fmt.Scan(&Ang,&k)
+	for a:=0 ;a <= k;a++{
+		Resultado += (math.Pow(-1,float64(a))*math.Pow(Ang,2*float64(a)))/float64(Cos(2*a))
+	}
+	fmt.Printf("cos(%.2f) = %.6f",Ang,Resultado)
+}
+
+------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------
+// QUESTÃO 25
+
+package main
+
+import "fmt"
+import "math"
+
+var Quantidade int
+var Expoente,Resultado float64
+
+func funce(n int)int{
+	Soma := 1
+	for i:=2;i <= n;i++{
+		Soma *= i
+	}
+	return Soma
+}
+
+func main(){
+    fmt.Println("Qual o expoente e qual a quantidade de termos?")
+	fmt.Scan(&Expoente,&Quantidade)
+	for k:=0;k <= Quantidade; k++{
+		Resultado += (math.Pow(Expoente,float64(k)))/float64(funce(k))
+	}
+	fmt.Printf("e^%.2f = %.6f",Expoente,Resultado)
+}
+------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------
+// QUESTÃO 26
+
+package main
+
+import "fmt"
+import "math"
+
+var Quantidade int
+var Num,Resultado float64
+
+func Sen(n int)int{
+	Soma := 1
+	for i:=2;i <= n;i++{
+		Soma *= i
+	}
+	return Soma
+}
+
+func main() {
+    fmt.Println("Qual o angulo e quantos termos?")
+	fmt.Scan(&Num,&Quantidade)
+	for k := 0; k <= Quantidade; k++ {
+		Resultado += (math.Pow(-1,float64(k))* math.Pow(Num,(2 * float64(k)) + 1))/float64(Sen(2 * k + 1))
+	}
+	fmt.Printf("seno(%.2f) = %.6f",Num,Resultado)
+}
+------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------
+// QUESTÃO 27
+
+package main
+import "fmt"
+
+var Num int
+
+func main() {
+    fmt.Println("Qual o número?")
+	for{
+		fmt.Scan(&Num)
+		if Num < 1{
+			fmt.Printf("Fatoracao nao e possive para o numero %v !\n",Num)
+		}else{
+			break
+		}
+	}
+		if Num == 1{
+			fmt.Printf("1 = 1")
+		}else{
+			fmt.Printf("%v = ",Num)
+			Fatoraçao := 2
+			for{
+				if Num%Fatoraçao!=0{
+					Fatoraçao++
+					continue
+				}
+				Num = Num/Fatoraçao
+				fmt.Printf("%v",Fatoraçao)
+				if Num ==1{
+					break
+				}
+				if Num != 1{
+					fmt.Print(" x ")
+				}
+			}
+		
+	}
+}
+------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------
